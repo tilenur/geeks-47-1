@@ -1,0 +1,393 @@
+@import "./mixins";
+$color: green;
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter28pt-Medium.woff2") format(woff2);
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter28pt-Regular.woff2") format(woff2);
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter28pt-SemiBold.woff2") format(woff2);
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color-red: $color;
+    --font-family: "Inter", san-serif;
+    --color-light: #fff;
+    --color-dark: #101828;
+    --color-light-grey: #667085;
+    --color-perple: #6941c6;
+    --color-blue: #344054;
+    --color-border: #d0d5dd;
+    --border-radius: 8px;
+    --border: 1px solid var(--color-border);
+    --transition-duration: 0.2s;
+    --container-width: 1520px;
+    --container-padding-x: 200px;
+    --container-padding-x-1440:  80px;
+    --container-padding-x-1280: 80px;
+    --container-padding-x-960:  80px;
+    --container-padding-x-760:  60px;
+    --container-padding-x-480:  40px;
+    --container-padding-x-360:  30px;
+    --header-hight: 65px;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-light-grey);
+    padding-inline: var(--container-padding-x);
+   @include laptop {
+       padding-inline: var(--container-padding-x-1440);
+   }
+    @include tablet {
+        padding-inline: var(--container-padding-x-1280);
+    }
+    @include mobile960 {
+        padding-inline: var(--container-padding-x-960);
+    }
+    @include mobile {
+        padding-inline: var(--container-padding-x-760);
+    }
+    @include mobile480 {
+        padding-inline: var(--container-padding-x-480);
+    }
+    @include mobile360 {
+        padding-inline: var(--container-padding-x-360);
+    }
+}
+
+.header {
+    background-color: red;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: var(--header-hight);
+    align-items: center;
+    padding-inline: 20px 24px;
+    &-info {
+        display: flex;
+        column-gap: 32px;
+    }
+    &-menu {
+        display: flex;
+        align-items: center;
+        &-list {
+            display: flex;
+            column-gap: 18px;
+            align-items: center;
+        }
+
+        &-item {
+            display: flex;
+        }
+
+        &-link {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 171%;
+            color: #252c32;
+        }
+    }
+}
+
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+}
+.header-logo {
+    /*margin-bottom: 3px;*/
+}
+
+
+
+
+
+.header-all-icons {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    aspect-ratio: 1;
+}
+
+.header-icon-gamburger {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .header-menu {
+        display: none;
+    }
+    .header-icon-gamburger {
+        display: block;
+    }
+
+}@media screen and (max-width: 760px) {
+    .header-menu {
+        display: none;
+    }
+    .header-icon-gamburger {
+        display: block;
+    }
+}
+
+.main {
+    margin-inline: auto;
+    //@include flex-center;
+    .analytic {
+        @include flex-center;
+        flex-direction: column;
+        &-title {
+            font-weight: 600;
+            font-size: 60px;
+            line-height: 72px;
+            margin-bottom: 24px;
+            @include mobile960 {
+                font-size: 44px;
+            }
+            @include mobile480 {
+                font-size: 32px;
+            }
+            @include mobile360 {
+                font-size: 28px;
+            }
+        }
+
+        &-subtitle {
+            margin-bottom: 48px;
+        }
+
+        &-btns {
+            @include flex-center
+        }
+    }
+}
+
+.btn {
+    @include button(blue, white, 30px)
+}
+
+.launch {
+    width: 100%;
+    //background-color: yellow;
+    margin: 0 auto;
+    padding-left: 32px;
+
+
+    .build {
+        width: 50%;
+        @include laptop {
+            width: 52%;
+        }
+
+        @include tablet {
+            width: 63%;
+        }
+
+        @include mobile960 {
+            width: 68%;
+        }
+
+        @include mobile {
+            width: 87%;
+        }
+
+        @include mobile480 {
+            width: 100%;
+        }
+
+
+        //background-color: red;
+        h3 {
+            font-family: var(--font-family);
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 150%;
+            color: #6941c6;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-family);
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 122%;
+            color: #101828;
+            margin-bottom: 20px;
+            @include mobile480 {
+                font-size: 28px;
+                line-height: 157%;
+            }
+        }
+
+
+        p {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 150%;
+            color: #667085;
+            @include mobile480 {
+                font-size: 16px;
+                line-height: 187%;
+            }
+
+        }
+    }
+    .stats_picture {
+        display:flex;
+        gap: 96px;
+        //width: 100%;
+
+        @include mobile960 {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+        @include mobile480 {
+            gap: 28px;
+        }
+        .build-img {
+            @include mobile960 {
+                width: 100%;
+            }
+        }
+
+
+        //.build-img {
+        //    width: 50%;
+        //    background-image: url(../images/build.webp);
+        //    background-repeat: no-repeat;
+        //    background-position: center;
+        //    background-size: cover;
+        //    @include flex-center;
+        //}
+        .stats {
+            width: 50%;
+            display: flex;
+            gap: 32px 64px;
+            padding: 80px 0;
+            //display: grid;
+            //grid-template-columns: repeat(auto-fit, minmax(286px, 1fr));
+            //row-gap: 64px;
+            //column-gap: 32px;
+            //padding: 80px 96px 80px 32px;
+
+            @include mobile960 {
+                width: 100%;
+                padding: 0;
+            }
+            @include mobile480 {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+
+
+            .stat {
+                background-color: #fff;
+                padding: 20px;
+                text-align: center;
+                &-number {
+                    display: block;
+                    font-family: var(--font-family);
+                    font-size: 60px;
+                    line-height: 120%;
+                    text-align: center;
+                    color: #7f56d9;
+                    margin-bottom: 12px;
+                    @include mobile480 {
+                        font-size: 40px;
+                        line-height: 180%;
+                    }
+                }
+                &-label {
+                    display: block;
+                    font-family: var(--font-family);
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 156%;
+                    text-align: center;
+                    color: #101828;
+                    margin-bottom: 8px;
+                }
+                & p {
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 150%;
+                    text-align: center;
+                    color: #667085;
+                }
+            }
+        }
+    }
+}
+
+.untitled {
+    padding-block: 96px;
+    &-title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 125%;
+        text-align: center;
+        color: #101828;
+        margin-bottom: 32px;
+    }
+    &-profile {
+        @include flex-center;
+        flex-direction: column;
+        margin-bottom: 48px;
+        &-img {
+            margin-bottom: 16px;
+        }
+        &-name_job {
+            @include flex-center;
+            flex-direction: column;
+            gap: 4px;
+        }
+    }
+    &-companies {
+        @include flex-center;
+        gap: 64px;
+        @include mobile960 {
+            justify-content: left;
+            flex-wrap: wrap;
+            column-gap: 96px;
+            row-gap: 16px;
+        }
+    }
+
+
+}

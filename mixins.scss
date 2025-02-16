@@ -1,0 +1,70 @@
+$breakpoint-360: 360px;
+$breakpoint-480: 480px;
+$breakpoint-760: 760px;
+$breakpoint-960: 960px;
+$breakpoint-1280: 1280px;
+$breakpoint-1440: 1440px;
+
+
+
+@mixin mobile360 {
+  @media screen and (max-width: $breakpoint-360) {
+    @content
+  }
+}
+@mixin mobile480 {
+  @media screen and (max-width: $breakpoint-480) {
+    @content
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: $breakpoint-760) {
+    @content
+  }
+}
+@mixin mobile960 {
+  @media screen and (max-width: $breakpoint-960) {
+    @content
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: $breakpoint-1280) {
+    @content
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: $breakpoint-1440) {
+    @content
+  }
+}
+
+
+
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button($bg, $color, $radius:5px) {
+  background: $bg;
+  border-radius: $radius;
+  color: $color;
+}
+
+@mixin flex-center-if($hor:true, $ver:true) {
+  display: flex;
+  @if $hor {
+    justify-content: center;
+  }
+  @if $ver {
+    align-items: center;
+  }
+}
+
+@mixin color-blue ($color) {
+  @if $color == 'blue' {
+    color: blue;
+  }
+}
