@@ -161,6 +161,10 @@ body {
 }
 .main {
   margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .main .analytic {
   display: flex;
@@ -170,7 +174,7 @@ body {
 }
 .main .analytic-title {
   font-weight: 600;
-  font-size: 60px;
+  font-size: clamp(44px, 3vw, 60px);
   line-height: 72px;
   margin-bottom: 24px;
 }
@@ -196,6 +200,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.main .notebook {
+  width: 800px;
+}
+.main .notebook img {
+  width: 500px;
+  max-width: 100%;
+  min-width: 300px;
+}
+
+.title {
+  font-size: clamp(100px, 10vw, 200px);
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+}
+.box .square {
+  height: 100px;
+  color: red;
+  background-color: purple;
+}
+.box .span {
+  display: inline-block;
+  background-color: yellow;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
 }
 
 .btn {
@@ -393,6 +430,12 @@ body {
     flex-wrap: wrap;
     column-gap: 96px;
     row-gap: 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .untitled-companies {
+    display: flex;
+    flex-direction: column;
   }
 }
 
