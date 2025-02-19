@@ -390,13 +390,13 @@ body {
 }
 
 .untitled {
-  padding-block: 96px;
+  padding-block: clamp(32px, 6.25vw, 96px);
 }
 .untitled-title {
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 48px;
-  line-height: 125%;
+  font-size: clamp(28px, 1.39vw, 48px);
+  line-height: 1.4em;
   text-align: center;
   color: #101828;
   margin-bottom: 32px;
@@ -421,21 +421,43 @@ body {
 .untitled-companies {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 64px;
+}
+.untitled-companies img:nth-child(1) {
+  grid-area: layers;
+}
+.untitled-companies img:nth-child(2) {
+  grid-area: sisyphus;
+}
+.untitled-companies img:nth-child(3) {
+  grid-area: circodes;
+}
+.untitled-companies img:nth-child(4) {
+  grid-area: catalog;
+}
+.untitled-companies img:nth-child(5) {
+  grid-area: quotient;
 }
 @media screen and (max-width: 960px) {
   .untitled-companies {
-    justify-content: left;
-    flex-wrap: wrap;
-    column-gap: 96px;
-    row-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "layers circodes quotient" "sisyphus catalog .";
+    gap: 16px;
   }
 }
 @media screen and (max-width: 480px) {
   .untitled-companies {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .untitled-companies img {
+    max-width: 100%;
+    height: auto;
+    width: 150px;
   }
 }
 
