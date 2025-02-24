@@ -461,4 +461,97 @@ body {
   }
 }
 
+.faq_section .faq_h2 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 122%;
+  text-align: center;
+  color: #101828;
+  margin-bottom: 20px;
+}
+.faq_section .faq_p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #667085;
+  margin-bottom: 64px;
+}
+.faq_section .faq-item {
+  width: 100%;
+  max-width: 768px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin: 0 auto;
+  text-align: left;
+}
+@media screen and (max-width: 960px) {
+  .faq_section .faq-item {
+    max-width: 90%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .faq_section .faq-item {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 360px) {
+  .faq_section .faq-item {
+    max-width: 100%;
+  }
+}
+.faq_section .faq-item .faq-item-container input[type=radio] {
+  display: none;
+}
+.faq_section .faq-item .faq-item-container input[type=radio]:checked ~ .faq_content {
+  max-height: 1000px;
+}
+.faq_section .faq-item .faq-item-container input[type=radio]:checked + label::after {
+  content: "-";
+}
+.faq_section .faq-item .faq-item-container label {
+  display: block;
+  position: relative;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 156%;
+  color: #101828;
+  cursor: pointer;
+  padding-right: 32px;
+}
+.faq_section .faq-item .faq-item-container label::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border: 2px solid blue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: blue;
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.faq_section .faq-item .faq-item-container .faq_content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #667085;
+  padding-right: 32px;
+}
+
 /*# sourceMappingURL=styles.css.map */

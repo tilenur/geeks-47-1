@@ -472,3 +472,107 @@ body {
         }
     }
 }
+
+.faq_section {
+  .faq_h2 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 122%;
+    text-align: center;
+    color: #101828;
+    margin-bottom: 20px;
+  }
+
+  .faq_p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    color: #667085;
+    margin-bottom: 64px;
+  }
+
+  .faq-item {
+    width: 100%;
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    @include mobile960 {
+      max-width: 90%;
+    }
+    @include mobile480 {
+      max-width: 100%;
+    }
+    @include mobile360 {
+      max-width: 100%;
+    }
+    margin: 0 auto;
+    text-align: left;
+
+    .faq-item-container {
+      input[type="radio"] {
+        display: none;
+
+        // Expand content when the radio button is checked
+        &:checked ~ .faq_content {
+          max-height: 1000px; // Use a fixed value or a very large value
+        }
+
+        // Change "+" to "-" when the radio button is checked
+        &:checked + label::after {
+          content: "-";
+        }
+      }
+
+      label {
+        display: block;
+        position: relative; // Add this to position the ::after element correctly
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 156%;
+        color: #101828;
+        cursor: pointer;
+        padding-right: 32px; // Add padding to prevent text overlap with the icon
+
+        // Plus sign inside a round icon
+        &::after {
+          content: "+";
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%); // Center vertically
+          width: 24px; // Size of the circle
+          height: 24px; // Size of the circle
+          background-color: #fff; // White background
+          border: 2px solid blue; // Black border
+          border-radius: 50%; // Make it round
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: blue; // Black color for the "+" and "-" signs
+          font-size: 20px;
+          font-weight: bold;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+      }
+
+      .faq_content {
+        max-height: 0; // Start with content hidden
+        overflow: hidden; // Hide overflowing content
+        transition: max-height 0.3s ease; // Smooth transition for expanding/collapsing
+
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #667085;
+        padding-right: min(32px);
+      }
+    }
+  }
+}
